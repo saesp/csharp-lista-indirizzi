@@ -4,6 +4,26 @@
 using csharp_lista_indirizzi;
 
 List <Address> addresses = new List<Address> ();
+void OpenFile()
+{
+    var textFile = File.OpenText("addresses.csv");
 
-//addresses.Add(new Address(""));
+    Console.WriteLine("ADDRESSES");
+
+    while (!textFile.EndOfStream)
+    {
+        string line = textFile.ReadLine();
+
+        if (line != null)
+        {
+            string[] data = line.Split(','); //suddividi la stringa in più pezzi usando la virgola come separatore
+            Console.WriteLine($"{data[2]}, {data[3]}, {data[4]}, {data[5]}");
+            addresses.Add(new Address(data[2], data[3], data[4], data[5]));
+        }
+    }
+
+    textFile.Close();
+}
+
+OpenFile();
 

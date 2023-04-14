@@ -15,6 +15,7 @@ namespace csharp_lista_indirizzi
         public string Province {get; set;}
         public string Zip {get; set;}
 
+
         public Address(string street, string city, string province, string zip)
         {
             Street = street;
@@ -22,5 +23,6 @@ namespace csharp_lista_indirizzi
             Province = province;
             Zip = zip;
         }
+
     }
 }
